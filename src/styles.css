@@ -743,7 +743,8 @@ a.primary-btn{
     color:#fff;
     border-radius:2px;
     font-size:14px;
-    margin-top:5px
+    margin-top:5px;
+    text-decoration: none;
 }
 a.primary-btn:hover{
     background:#0da8e4;
@@ -752,6 +753,10 @@ a.primary-btn:hover{
 
 .active-link {
   font-weight: bold;
+}
+
+.removeUnderline {
+    text-decoration: none;
 }
 
 /* 
