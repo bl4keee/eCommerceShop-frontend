@@ -42,3 +42,4 @@ interface GetResponseProductCategory {
   _embedded: {
     productCategory: ProductCategory[];
   }
+}

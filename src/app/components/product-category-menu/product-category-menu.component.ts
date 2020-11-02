@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductCategoryMenuComponent implements OnInit {
 
-  ProductCategories: ProductCategory[];
+  productCategories: ProductCategory[];
 
   constructor(private productService: ProductService) { }
 
