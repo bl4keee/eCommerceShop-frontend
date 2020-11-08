@@ -75,7 +75,7 @@ export class ProductListComponent implements OnInit {
                                                 .subscribe(this.processResult());
   }
   
-  private processResult() {
+  processResult() {
     return data => {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;
