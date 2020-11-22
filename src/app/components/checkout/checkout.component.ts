@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NumberValueAccessor } from '@angular/forms';
+import { Country } from 'src/app/common/country';
 import { BartekShopFormService } from 'src/app/services/bartek-shop-form.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class CheckoutComponent implements OnInit {
   totalQuantity: number = 0;
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
+  countries: Country[] = [];
 
   constructor(private formBuilder: FormBuilder, 
               private bartekShopFormService: BartekShopFormService) { }
@@ -66,6 +68,12 @@ export class CheckoutComponent implements OnInit {
       }
     );
 
+    this.bartekShopFormService.getCountries().subscribe(
+      data => {
+        console.log("Retrieved countries: " + JSON.stringify(data));
+        this.countries = data;
+      }
+    );
   }
 
   onSubmit() {
