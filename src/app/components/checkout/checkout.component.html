@@ -7,18 +7,18 @@
                 <div formGroupName="customer" class="form-area">
                     <h3>Customer</h3>
                     <div class="row">
-                        <div class="col-md-2"><label>First Name</label></div>
+                        <div class="col-md-2"><label>First Name *</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="firstName" type="text">
 
                                 <!--Validations-->
                                 <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" 
-                                      class="alert alert-danger">
+                                      class="mt-1 alert alert-danger">
                                     <div *ngIf="firstName.errors.required">
                                         First Name is required
                                     </div>
-                                    <div *ngIf="firstName.errors.minLength">
+                                    <div *ngIf="firstName.errors.minlength">
                                         First Name must be at least 2 characters long
                                     </div>
                                 </div>
@@ -27,17 +27,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2"><label>Last Name</label></div>
+                        <div class="col-md-2"><label>Last Name *</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="lastName" type="text">
 
                                 <!--Validations-->
-                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" 
+                                      class="mt-1 alert alert-danger">
                                     <div *ngIf="lastName.errors.required">
                                         Last Name is required
                                     </div>
-                                    <div *ngIf="lastName.errors.minLength">
+                                    <div *ngIf="lastName.errors.minlength">
                                         Last Name must be at least 2 characters long
                                     </div>
                                 </div>
@@ -46,18 +47,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2"><label>Email</label></div>
+                        <div class="col-md-2"><label>Email *</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="email" type="text">
 
                                 <!--Validations-->
-                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" 
+                                      class="mt-1 alert alert-danger">
                                     <div *ngIf="email.errors.required">
                                         Email is required
                                     </div>
                                     <div *ngIf="email.errors.pattern">
-                                        Email must be a valid email address
+                                        Email must be a valid email address format
                                     </div>
                                 </div>
 
