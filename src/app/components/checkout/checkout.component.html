@@ -13,9 +13,8 @@
                                 <input formControlName="firstName" type="text">
 
                                 <!--Validations-->
-                                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" 
-                                      class="mt-1 alert alert-danger">
-                                    <div *ngIf="firstName.errors.required">
+                                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="mt-1 alert alert-danger">
+                                    <div *ngIf="firstName.errors.required || firstName.errors.notOnlyWhitespace">
                                         First Name is required
                                     </div>
                                     <div *ngIf="firstName.errors.minlength">
@@ -35,7 +34,7 @@
                                 <!--Validations-->
                                 <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" 
                                       class="mt-1 alert alert-danger">
-                                    <div *ngIf="lastName.errors.required">
+                                    <div *ngIf="lastName.errors.required || lastName.errors.notOnlyWhitespace">
                                         Last Name is required
                                     </div>
                                     <div *ngIf="lastName.errors.minlength">
