@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, NumberValueAccessor, Validators } 
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { BartekShopFormService } from 'src/app/services/bartek-shop-form.service';
+import { CartService } from 'src/app/services/cart.service';
 import { BartekShopValidators } from 'src/app/validators/bartek-shop-validators';
 
 @Component({
@@ -22,9 +23,13 @@ export class CheckoutComponent implements OnInit {
   billingAddressStates: State[] = [];
 
   constructor(private formBuilder: FormBuilder, 
-              private bartekShopFormService: BartekShopFormService) { }
+              private bartekShopFormService: BartekShopFormService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
+
+    this.reviewCartDetails();
+
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: new FormControl('', [Validators.required, Validators.minLength(2), 
@@ -87,6 +92,16 @@ export class CheckoutComponent implements OnInit {
         console.log("Retrieved countries: " + JSON.stringify(data));
         this.countries = data;
       }
+    );
+  }
+
+  reviewCartDetails() {
+    this.cartService.totalQuantity.subscribe(
+      totalQuantity => this.totalQuantity = totalQuantity
+    );
+
+    this.cartService.totalPrice.subscribe(
+      totalPrice => this.totalPrice = totalPrice
     );
   }
 
