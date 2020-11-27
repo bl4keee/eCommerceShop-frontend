@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, NumberValueAccessor, Validators } 
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { BartekShopFormService } from 'src/app/services/bartek-shop-form.service';
+import { CartService } from 'src/app/services/cart.service';
 import { BartekShopValidators } from 'src/app/validators/bartek-shop-validators';
 
 @Component({
@@ -22,7 +23,8 @@ export class CheckoutComponent implements OnInit {
   billingAddressStates: State[] = [];
 
   constructor(private formBuilder: FormBuilder, 
-              private bartekShopFormService: BartekShopFormService) { }
+              private bartekShopFormService: BartekShopFormService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
