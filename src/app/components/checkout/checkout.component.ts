@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NumberValueAccessor, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { BartekShopFormService } from 'src/app/services/bartek-shop-form.service';
 import { CartService } from 'src/app/services/cart.service';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { BartekShopValidators } from 'src/app/validators/bartek-shop-validators';
 
 @Component({
@@ -24,7 +26,9 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
               private bartekShopFormService: BartekShopFormService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private checkoutService: CheckoutService, 
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -131,8 +135,10 @@ export class CheckoutComponent implements OnInit {
 
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
+      return;
     }
-    
+
+    // printing for test
     console.log(this.checkoutFormGroup.get('customer').value);
     console.log("The email address is " + this.checkoutFormGroup.get('customer').value.email);
     console.log("The shipping address country is " + this.checkoutFormGroup.get('shippingAddress').value.country.name);
