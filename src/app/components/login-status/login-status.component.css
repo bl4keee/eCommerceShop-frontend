@@ -19,9 +19,9 @@
 }
 
 .login-status-user-info {
-    line-height:43px;
-    border:1px;
-    padding:0 17px;
+    line-height:25px;
+    border:10px;
+    padding:5 10px 5 10px;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:3px;
