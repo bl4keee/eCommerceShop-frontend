@@ -57,6 +57,10 @@ export class CartService {
     this.logCartData(totalPriceValue, totalQuantityValue);
   }
 
+  persistCartItems() {
+    this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
     
     console.log('Contents of the cart');
